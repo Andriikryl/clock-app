@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
@@ -19,7 +20,15 @@ function App() {
     return [...divider(h), ...divider(m), ...divider(s)];
   };
 
-  return <div className="App"></div>;
+  const [time, setTime] = useState(binaryTime());
+
+  return (
+    <div className="App">
+      {time.map((x, i) => (
+        <div key={i}>{x}</div>
+      ))}
+    </div>
+  );
 }
 
 export default App;
