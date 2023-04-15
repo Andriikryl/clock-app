@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Binary from "./Binary";
+
 import "./App.css";
 
 function App() {
@@ -14,7 +16,6 @@ function App() {
         .toString(2)
         .padStart(4, "0"),
       (x % 10).toString(2).padStart(4, "0"),
-      ,
     ];
 
     return [...divider(h), ...divider(m), ...divider(s)];
@@ -22,10 +23,14 @@ function App() {
 
   const [time, setTime] = useState(binaryTime());
 
+  useEffect(() => {
+    setInterval(() => setTime(binaryTime), 1000);
+  }, [time]);
+
   return (
     <div className="App">
       {time.map((x, i) => (
-        <div key={i}>{x}</div>
+        <Binary key={i} value={x} />
       ))}
     </div>
   );
