@@ -1,0 +1,33 @@
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  gap: 10px;
+}
+
+.binary-clock{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.binary-clock:nth-child(2n){
+  margin-right: 20px;
+}
+
+.binary-clock span{
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.binary-clock span.off{
+  background-color: black;
+}
+
+.binary-clock span.on{
+  background-color: tomato;
+}
